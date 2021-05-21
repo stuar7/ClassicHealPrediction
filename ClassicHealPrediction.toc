@@ -1,12 +1,10 @@
-## Interface: 11305
+## Interface: 20501
 ## Title: ClassicHealPrediction
 ## Notes: Adds heal prediction to the Blizzard unit/raid frames and nameplates
-## Version: @project-version@
+## Version: v1.6.9-unofficial-bcc
 ## Author: dev7355608
 ## SavedVariablesPerCharacter: ClassicHealPredictionSettings
 ## OptionalDeps: ClassicInstantHealth
-## X-Curse-Project-ID: 351332
-## X-WoWI-ID: 25452
 
 libs\LibStub\LibStub.lua
 libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
