@@ -1425,13 +1425,7 @@ if( playerClass == "HUNTER" ) then
 		itemSetsData["Giantstalker"] = {16851, 16849, 16850, 16845, 16848, 16852, 16846, 16847}
 
 		GetHealTargets = function(bitType, guid, healAmount, spellID)
-			local spellName = GetSpellInfo(spellID)
-			if ( spellName == HealthFunnel ) then
-				return compressGUID[UnitGUID("pet")], healAmount
-			elseif ( spellName == DrainLife ) then
-				return compressGUID[playerGUID], healAmount
-			end
-			return compressGUID[guid], healAmount
+			return compressGUID[UnitGUID("pet")], healAmount
 		end
 
 		CalculateHealing = function(guid, spellID)
@@ -1457,7 +1451,13 @@ if( playerClass == "WARLOCK" ) then
 		talentData[ImpHealthFunnel] = { mod = 0.1, current = 0 }
 
 		GetHealTargets = function(bitType, guid, healAmount, spellID)
-			return compressGUID[UnitGUID("pet")], healAmount
+			local spellName = GetSpellInfo(spellID)
+			if ( spellName == HealthFunnel ) then
+				return compressGUID[UnitGUID("pet")], healAmount
+			elseif ( spellName == DrainLife ) then
+				return compressGUID[playerGUID], healAmount
+			end
+			return compressGUID[guid], healAmount
 		end
 
 		CalculateHealing = function(guid, spellID)
